@@ -34,6 +34,8 @@ class PersonalGamificationSpec extends AnyFlatSpec with should.Matchers:
     val nP = new Person("Abenezer1", "@gmail.com", 12)
     val path = os.pwd/"taskInProgress"
     writer.searlize(path, "hello2.yaml", nP)
+    println((writer.desearlize(path, "hello2.yaml")))
+    writer.delete(path,  "hello2.yaml")
   }
 
 
