@@ -13,15 +13,11 @@ val stateDir = os.Path("/var/lib/pg")
 
   // Try to load assets
   val monsters: Seq[Monster] = os.list((stateDir / "monsters").mkdir.all)
-  val items: Seq[Item] =
-    os.list(
-      (stateDir / "items").mkdir.all
-    )
+  val items: Seq[Item] = os.list((stateDir / "items").mkdir.all)
   val statusEffects: Seq[StatusEffect] =
     os.list(
       (stateDir / "status_effects").mkdir.all
     )
-
   mapper.registerModule(DefaultScalaModule)
   config.mode match
     case "player add" =>

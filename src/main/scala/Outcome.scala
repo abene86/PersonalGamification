@@ -6,7 +6,17 @@ case class Outcome(
     exp: Float,
     items: Seq[Items],
     statusEffects: Seq[StatusEffect]
-)
+):
+  def string:String
+    s"""-----Outcome-----
+    --Effect Heal and Exp--
+    |Health: $health
+    |Exp: $exp
+    --Items won and Char Stat Effects--
+    |items: ${items.iterableFactory.iterate}
+    |statusEffects: ${statusEffects.iterableFactory.iterate}
+    ---------------------
+    """.stripMargin
 
 object Outcome:
   def reward(event: Event, effort: Int): Outcome =
